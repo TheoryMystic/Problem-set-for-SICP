@@ -1,6 +1,6 @@
 #lang racket
 #|
-条件表达式及谓词[Conditional Expressions and Predicates]
+1.1.6 Conditional Expressions and Predicates
 |#
 
 #|

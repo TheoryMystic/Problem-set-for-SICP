@@ -1,6 +1,6 @@
 #lang racket
 #|
-Tree Recursion
+1.2.2 Tree Recursion
 |#
 (define (fib-recursion n)
   (cond [(= n 0) 0]
@@ -136,3 +136,44 @@ pennies : 1
     ))
 (count-change-my-version 100) ;;292
 (count-change-my-version 200) ;;2435
+
+#|
+Exercise 1.11
+f(n) = n [if n<3]
+f(n) = f(n-1) + 2f(n-2) + 3f(n-3) [if n>=3]
+|#
+(define (func-n n)
+  (cond
+    [(< n 3) n]
+    [else (+
+           (func-n (- n 1))
+           (* 2 (func-n (- n 2)))
+           (* 3 (func-n (- n 3))))]))
+(func-n 5) ;;25
+(func-n 3) ;;4
+(func-n 10) ;;1892
+
+#|
+Exercise 1.12
+Pascal's triangle
+|#
+(define (pascal row col)
+  (cond
+    [(or (< row 0) (< col 0)) "number invalid"]
+    [(or (= row 0) (= col 0)) 0]
+    [(= row col) 1]
+    [else (+
+           (pascal (- row 1) (- col 1))
+           (pascal (- row 1) col))]
+    ))
+(pascal 2 2) ;;1
+(pascal 1 1) ;;1
+(pascal 4 3) ;;3
+(pascal 5 3) ;;6
+(pascal 5 4) ;;4
+(pascal 6 4) ;;10
+(pascal -4 5) ;;"number invalid"
+
+#|
+Exercise 1.13 ignored:(
+|#

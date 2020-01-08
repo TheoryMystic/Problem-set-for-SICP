@@ -1,6 +1,6 @@
 #lang racket
 #|
-过程应用的替换模型[The Substitution Model for Procedure Application]
+1.1.5 The Substitution Model for Procedure Application
 |#
 
 #|

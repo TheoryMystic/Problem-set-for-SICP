@@ -1,6 +1,6 @@
 #lang racket/base
 #|
-命名与环境[Naming and the Enviroment]
+1.1.2 Naming and the Enviroment
 |#
 
 #|

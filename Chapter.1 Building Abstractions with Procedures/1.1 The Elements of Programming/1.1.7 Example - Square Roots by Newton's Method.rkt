@@ -1,6 +1,6 @@
 #lang racket
 #|
-Example - Square Root by Newton's Method
+1.1.7 Example - Square Root by Newton's Method
 |#
 
 #|
