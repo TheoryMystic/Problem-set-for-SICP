@@ -93,3 +93,32 @@ Perform integer multiplication by means of repeated addition.
 (multiply-my-ver 10 50) ;;500
 (multiply-my-ver 1 50) ;;50
 (multiply-my-ver 50 50) ;;2500
+
+#|
+Exercise 1.18
+Perform integer multiplication by means of repeated addition with iteration.
+|#
+
+;; See Solution of Exercise 1.17 :)
+
+#|
+Exercise 1.19
+Fib with log(n) steps
+|#
+(define (square n)
+  (* n n))
+(define (even? n)
+  (= (remainder n 2) 0))
+(define (fib n)
+  (fib-iter 1 0 0 1 n))
+(define (fib-iter a b p q count)
+  (cond
+    [(= count 0) b]
+    [(even? count)
+     (fib-iter a b (+ (square p) (square q)) (+ (* 2 p q) (square q)) (/ count 2))]
+    [else (fib-iter (+ (* b q) (* a q) (* a p))
+                    (+ (* b p) (* a q))
+                    p
+                    q
+                    (- count 1))]))
+(fib 2)
