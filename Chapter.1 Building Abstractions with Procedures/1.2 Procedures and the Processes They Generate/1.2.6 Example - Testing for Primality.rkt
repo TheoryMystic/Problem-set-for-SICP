@@ -18,6 +18,13 @@
   (= n (smallest-divisor n)))
 
 #|
+Exercise 1.21
+|#
+(smallest-divisor 199) ;;199
+(smallest-divisor 1999) ;;1999
+(smallest-divisor 19999) ;;7
+
+#|
 Fermat's Little Theorem[费马小定理]:
   if n is a primer number and a is any positive integer less than n, then a raised to the nth power is congruent to a modulo n.
 |#
@@ -52,13 +59,25 @@ Exercise 1.22
 |#
 (define (runtime) (current-milliseconds))
 (define (timed-prime-test n)
-  (newline)
-  (display n)
   (start-prime-test n (runtime)))
 (define (start-prime-test n start-time)
   (if (prime? n)
-      (report-prime (- (runtime) start-time))
+      (report-prime n (- (runtime) start-time))
       #f))
-(define (report-prime elapsed-time)
-  (display " *** ")
-  (display elapsed-time))
+(define (report-prime num elapsed-time)
+  (display num)
+  (display " Elapsed Time:")
+  (display elapsed-time)
+  (display " ")
+  )
+
+(define (search-for-primes range-start range-end)
+  (timed-prime-test range-start)
+  (cond
+    [(>= range-start range-end)
+     (newline)
+     (display "check over")]
+    [else
+     (search-for-primes (+ range-start 1) range-end)]
+    ))
+
